@@ -1,20 +1,22 @@
-import { Component, OnInit } from '@angular/core';
-import { AngularFire, FirebaseListObservable } from 'angularfire2';
+import { Component } from '@angular/core';
+import { FireService } from '../services/firebase.service';
 
 @Component({
-  templateUrl: 'test.component.html'
+    selector: 'my-test',
+    templateUrl: './test.component.html',
+    providers: [FireService]
 })
-export class TestComponent {
-  members: FirebaseListObservable<any[]>;
+export class TestComponent  { 
+    employees :any = [];
 
-  constructor(private af: AngularFire) {
-    this.members = this.af.database.list('/members') as FirebaseListObservable<any[]>;
-    console.log("1 :"+this.members[1].name);
-  }
+    constructor(private _fireService: FireService){}
 
-  ngOnInit(){
-      this.members = this.af.database.list('/members') as FirebaseListObservable<any[]>;
-      console.log("2 :"+this.members[2].name);
-  }
-
+    onClic(){//testService
+        this._fireService.getEmployees()
+            .subscribe(
+                data => this.employees = data,
+                error => alert(error),
+                () => console.log("Finished")
+            );
+    }
 }

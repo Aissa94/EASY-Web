@@ -8,18 +8,18 @@ import { SimpleLayoutComponent }  from './layouts/simple-layout.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'dashboard',
+    redirectTo: 'pages/login',
     pathMatch: 'full',
   },
   {
     path: '',
     component: FullLayoutComponent,
     data: {
-      title: 'Home'
+      title: 'Accueil'
     },
     children: [
       {
-        path: 'dashboard',
+        path: 'home',
         loadChildren: './dashboard/dashboard.module#DashboardModule'
       },
       {
@@ -37,8 +37,13 @@ export const routes: Routes = [
       {
         path: 'charts',
         loadChildren: './chartjs/chartjs.module#ChartJSModule'
-      }
+      },
     ]
+  },
+  { 
+    path: 'pages/login', 
+    redirectTo: 'pages/404', 
+    pathMatch: 'full' 
   },
   {
     path: 'pages',
@@ -52,6 +57,11 @@ export const routes: Routes = [
         loadChildren: './pages/pages.module#PagesModule',
       }
     ]
+  },
+  { 
+    path: '**', 
+    redirectTo: 'pages/404', 
+    pathMatch: 'full' 
   }
 ];
 
