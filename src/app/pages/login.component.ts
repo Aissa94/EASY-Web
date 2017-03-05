@@ -8,17 +8,19 @@ import { Router } from '@angular/router';
   providers: [FireService]
 })
 export class LoginComponent {
+  photoURL : string = '';
   user = {};
   compte = {};
 
-  constructor(public af: AngularFire, private _fireService: FireService, private _router: Router) {
+constructor(public af: AngularFire, private _fireService: FireService, private _router: Router) {
     this.af.auth.subscribe(user => {
-      console.log('User ---->', user)
       if (user) {
         this.user = user.auth.providerData[0];
+        this.photoURL = user.auth.photoURL;
       }
       else {
         this.user = {};
+        this.photoURL = '';
       }
     });
   }
@@ -28,31 +30,49 @@ export class LoginComponent {
       provider: AuthProviders.Google,
       method: AuthMethods.Popup
     });
-    var email: String = this.af.auth.getAuth().google.email;
-    // Vérification du domaine
-    var domainEsi: string = '@esi.dz';
-    if(! email.includes(domainEsi, email.length-domainEsi.length)){
-      this.logout();
-    }
-    else{
-      //acces à la base de données
-      this._fireService.getComptes(email)
-            .subscribe(
-                data => this.compte = data,
-                error => alert(error),
-                () => console.log("Finished")
-            );
-      this._router.navigate(['/dashboard'/*, this.compte*/]);      
-    }
+    this.af.auth.subscribe(user => {
+      if (user) {
+          this.user = user.auth.providerData[0];
+          this.photoURL = user.auth.photoURL;
+          var email: String = user.auth.email;
+          // Vérification du domaine
+          var domainEsi: string = '@esi.dz';
+          if(! email.includes(domainEsi, email.length-domainEsi.length)&& (false)){
+            this.logout();
+            this._router.navigate(['']); 
+          }
+          else{
+            //acces à la base de données
+            /*this._fireService.getComptes(email)
+                  .subscribe(
+                      data => {
+                        this.compte = data;
+                        this._router.navigate(['/home']); },
+                  );*/
+              this._router.navigate(['/home']); 
+          }
+      }
+      else {
+        this.user = {};
+        this.photoURL = '';
+      }
+    });
+    return this.user;
   }
 
   logout() {
     this.af.auth.logout();
   }
 
+  seConnecterAutre() {
+    this.logout();
+    //Wait 1 seconds, and login :
+    setTimeout(() => this.login(), 1000);
+  }
+
   isUserLoggedIn() {
     return (Object.keys(this.user).length === 0);
   }  
-
+  
 
 }

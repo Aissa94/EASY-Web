@@ -14,9 +14,8 @@ export class TestComponent  {
     onClic(){//testService
         this._fireService.getEmployees()
             .subscribe(
-                data => this.employees = data,
+                data => {this.employees = data;console.log(this.employees[0]["name"])},
                 error => alert(error),
-                () => console.log("Finished")
             );
     }
 }

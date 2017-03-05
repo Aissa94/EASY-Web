@@ -7,8 +7,8 @@
         </li>
         <li class="nav-item dropdown" dropdown (onToggle)="toggled($event)">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle>
-                <img src="assets/img/avatars/6.jpg" class="img-avatar" alt="admin@bootstrapmaster.com">
-                <span class="hidden-md-down">admin</span>
+                <img [src]="photoURL" class="img-avatar" alt="photo de profile">
+                <span class="hidden-md-down">{{nom}}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" dropdownMenu aria-labelledby="simple-dropdown">
 
@@ -19,7 +19,8 @@
                 <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
                 <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Paramètres</a>
                 <div class="divider"></div>
-                <a class="dropdown-item" [routerLink]="['']"><i class="fa fa-lock"></i> Logout</a>
+                <a class="dropdown-item" (click)="login()"><i class="fa fa-lock"></i> Selectionner un autre compte</a>
+                <a class="dropdown-item" (click)="logout()" [routerLink]="['']"><i class="fa fa-lock"></i> Logout</a>
             </div>
         </li>
         <li class="nav-item hidden-md-down">
@@ -42,49 +43,52 @@
                     Gestionnaire
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/components/test']">&nbsp;&nbsp;&nbsp; Gestion des Années</a>
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/components/test']"> Gestion des Années</a>
                 </li>
                 <li class="nav-item">
-                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/components/test']">&nbsp;&nbsp;&nbsp; Gestion de Contenu</a>
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/components/test']"> Gestion de Contenu</a>
                 </li>
                 <li class="nav-item nav-dropdown" routerLinkActive="open">
-                    <a class="nav-link nav-dropdown-toggle" href="#">&nbsp;&nbsp;&nbsp; Enseignant</a>
+                    <a class="nav-link nav-dropdown-toggle" href="#"> Enseignant</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/icons/font-awesome']">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Liste d'enseignants</a>
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/icons/font-awesome']">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Liste d'enseignants</a>
                         </li>
                     </ul>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/icons/font-awesome']">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Affectation</a>
-                        </li>
-                    </ul>
-                </li>
-                <li class="nav-item nav-dropdown" routerLinkActive="open">
-                    <a class="nav-link nav-dropdown-toggle" href="#">&nbsp;&nbsp;&nbsp; Etudiants</a>
-                    <ul class="nav-dropdown-items">
-                        <li class="nav-item">
-                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/icons/font-awesome']">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Consultation</a>
-                        </li>
-                    </ul>
-                    <ul class="nav-dropdown-items">
-                        <li class="nav-item">
-                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/icons/font-awesome']">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Saisie des notes</a>
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/icons/font-awesome']">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Affectation</a>
                         </li>
                     </ul>
                 </li>
                 <li class="nav-item nav-dropdown" routerLinkActive="open">
-                    <a class="nav-link nav-dropdown-toggle" href="#">&nbsp;&nbsp;&nbsp; Gestion des sales</a>
+                    <a class="nav-link nav-dropdown-toggle" href="#"> Etudiants</a>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/icons/font-awesome']">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Consultation</a>
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/icons/font-awesome']">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Consultation</a>
                         </li>
                     </ul>
                     <ul class="nav-dropdown-items">
                         <li class="nav-item">
-                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/icons/font-awesome']">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Saisie des notes</a>
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/icons/font-awesome']">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Saisie des notes</a>
                         </li>
                     </ul>
+                </li>
+                <li class="nav-item nav-dropdown" routerLinkActive="open">
+                    <a class="nav-link nav-dropdown-toggle" href="#"> Emploi du temps</a>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/icons/font-awesome']">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Saisie</a>
+                        </li>
+                    </ul>
+                    <ul class="nav-dropdown-items">
+                        <li class="nav-item">
+                            <a class="nav-link" routerLinkActive="active" [routerLink]="['/icons/font-awesome']">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp; Consultation</a>
+                        </li>
+                    </ul>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLinkActive="active" [routerLink]="['/widgets']"> Résarvation des salles</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" routerLinkActive="active" [routerLink]="['/widgets']"><i class="icon-calculator"></i> Paramètres <span class="badge badge-info">NEW</span></a>
