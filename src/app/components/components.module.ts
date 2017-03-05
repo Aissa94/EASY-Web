@@ -21,25 +21,12 @@ import { ComponentsRoutingModule }  from './components-routing.module';
 // Our Components
 import { TestComponent }            from './test.component';
 
-// Firebase
-import * as firebase from 'firebase';
-import { AngularFireModule } from 'angularfire2';
-
-// Must export the config
-export const firebaseConfig = {
-    apiKey: "AIzaSyDyBR9jBfFUwFEonlvnriNCJfm1VzZoR8M",
-    authDomain: "test-c3928.firebaseapp.com",
-    databaseURL: "https://test-c3928.firebaseio.com",
-    storageBucket: "test-c3928.appspot.com",
-    messagingSenderId: "709967017535"
-};
 
 @NgModule({
     imports: [
         ComponentsRoutingModule,
         ModalModule.forRoot(),
         TabsModule,
-        AngularFireModule.initializeApp(firebaseConfig) 
     ],
     declarations: [
         ButtonsComponent,
