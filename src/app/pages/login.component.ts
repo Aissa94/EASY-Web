@@ -37,9 +37,10 @@ constructor(public af: AngularFire, private _fireService: FireService, private _
           var email: String = user.auth.email;
           // Vérification du domaine
           var domainEsi: string = '@esi.dz';
-          if(! email.includes(domainEsi, email.length-domainEsi.length)&& (false)){
+          if(! email.includes(domainEsi, email.length-domainEsi.length)){
             this.logout();
-            this._router.navigate(['']); 
+            this._router.navigate(['']);
+            alert('Login 1-Seul le domaine @esi.dz est accepté !'); 
           }
           else{
             //acces à la base de données
@@ -63,7 +64,7 @@ constructor(public af: AngularFire, private _fireService: FireService, private _
   logout() {
     this.af.auth.logout();
   }
-
+  
   seConnecterAutre() {
     this.logout();
     //Wait 1 seconds, and login :

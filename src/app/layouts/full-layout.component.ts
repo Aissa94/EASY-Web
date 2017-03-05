@@ -54,8 +54,9 @@ constructor(public af: AngularFire, private _router: Router, private _route: Act
           var email: String = user.auth.email;
           // Vérification du domaine
           var domainEsi: string = '@esi.dz';
-          if(! email.includes(domainEsi, email.length-domainEsi.length) && (false)){
-            this.logout();
+          if(! email.includes(domainEsi, email.length-domainEsi.length)){
+            //this.logout(); 
+            alert('Layout-Seul le domaine @esi.dz est accepté !');
           }
           else{
             //acces à la base de données
@@ -81,7 +82,6 @@ constructor(public af: AngularFire, private _router: Router, private _route: Act
 
   logout() {
     this.af.auth.logout();
-    this._router.navigate(['']); 
   }
 
   ngOnInit(): void {}
