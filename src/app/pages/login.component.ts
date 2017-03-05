@@ -6,6 +6,7 @@ import { AuthService } from '../services/auth.service';
   templateUrl: 'login.component.html'
 })
 export class LoginComponent {
+emailError: boolean = false;
 
 constructor(public authService: AuthService, private router: Router) {  }
 
@@ -14,7 +15,8 @@ constructor(public authService: AuthService, private router: Router) {  }
         var domainEsi: string = '@esi.dz';
         if(! data.auth.email.includes(domainEsi, data.auth.email.length-domainEsi.length)){
             this.authService.logout();
-            alert('Seul le domaine @esi.dz est accepté !'); 
+            setTimeout((e)=> e.emailError = false, 4000, this);
+            this.emailError = true;
         }
         else{
             //acces à la base de données pour recupérer les données ...
@@ -23,6 +25,7 @@ constructor(public authService: AuthService, private router: Router) {  }
                       donnees => {
                         this.compte = donnees;},
                   );*/
+            this.emailError = false;
             this.router.navigate(['']); 
         }
     })
