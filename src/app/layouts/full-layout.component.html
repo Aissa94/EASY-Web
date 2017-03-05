@@ -7,8 +7,8 @@
         </li>
         <li class="nav-item dropdown" dropdown (onToggle)="toggled($event)">
             <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false" dropdownToggle>
-                <img [src]="photoURL" class="img-avatar" alt="photo de profile">
-                <span class="hidden-md-down">{{nom}}</span>
+                <img *ngIf="user_photoURL" [src]="user_photoURL" class="img-avatar" alt="photo de profile" [hidden] = "!isLoggedIn"/>
+                <span class="hidden-md-down" [hidden] = "!isLoggedIn">{{user_displayName}}</span>
             </a>
             <div class="dropdown-menu dropdown-menu-right" dropdownMenu aria-labelledby="simple-dropdown">
 
@@ -19,8 +19,8 @@
                 <a class="dropdown-item" href="#"><i class="fa fa-user"></i> Profile</a>
                 <a class="dropdown-item" href="#"><i class="fa fa-wrench"></i> Paramètres</a>
                 <div class="divider"></div>
-                <a class="dropdown-item" (click)="login()"><i class="fa fa-lock"></i> Selectionner un autre compte</a>
-                <a class="dropdown-item" (click)="logout()" [routerLink]="['']"><i class="fa fa-lock"></i> Logout</a>
+                <a class="dropdown-item" (click)="login()" [hidden]="!isLoggedIn"><i class="fa fa-lock"></i> Selectionner un autre compte</a>
+                <a class="dropdown-item" (click)="logout()" [hidden]="!isLoggedIn"><i class="fa fa-lock"></i> Logout</a>
             </div>
         </li>
         <li class="nav-item hidden-md-down">

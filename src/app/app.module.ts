@@ -12,6 +12,9 @@ import { SIDEBAR_TOGGLE_DIRECTIVES } from './shared/sidebar.directive';
 import { AsideToggleDirective } from './shared/aside.directive';
 import { BreadcrumbsComponent } from './shared/breadcrumb.component';
 
+// Services
+import { AuthService } from './services/auth.service';
+
 // Routing Module
 import { AppRoutingModule } from './app.routing';
 
@@ -57,7 +60,8 @@ export const firebaseConfig = {
   providers: [{
     provide: LocationStrategy,
     useClass: HashLocationStrategy
-  }],
+  }
+  ,AuthService],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }

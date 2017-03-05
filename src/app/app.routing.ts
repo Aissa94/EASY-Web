@@ -8,7 +8,7 @@ import { SimpleLayoutComponent }  from './layouts/simple-layout.component';
 export const routes: Routes = [
   {
     path: '',
-    redirectTo: 'pages/login',
+    redirectTo: 'home',
     pathMatch: 'full',
   },
   {
@@ -40,11 +40,11 @@ export const routes: Routes = [
       },
     ]
   },
-  { 
+  /*{ 
     path: 'pages/login', 
     redirectTo: 'pages/404', 
     pathMatch: 'full' 
-  },
+  },*/
   {
     path: 'pages',
     component: SimpleLayoutComponent,

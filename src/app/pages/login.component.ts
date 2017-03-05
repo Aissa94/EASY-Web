@@ -1,79 +1,31 @@
 import { Component } from '@angular/core';
-import { AngularFire, FirebaseListObservable, AuthProviders, AuthMethods } from 'angularfire2';
-import { FireService } from '../services/firebase.service';
 import { Router } from '@angular/router';
+import { AuthService } from '../services/auth.service';
 
 @Component({
-  templateUrl: 'login.component.html',
-  providers: [FireService]
+  templateUrl: 'login.component.html'
 })
 export class LoginComponent {
-  photoURL : string = '';
-  user = {};
-  compte = {};
 
-constructor(public af: AngularFire, private _fireService: FireService, private _router: Router) {
-    this.af.auth.subscribe(user => {
-      if (user) {
-        this.user = user.auth.providerData[0];
-        this.photoURL = user.auth.photoURL;
-      }
-      else {
-        this.user = {};
-        this.photoURL = '';
-      }
-    });
-  }
+constructor(public authService: AuthService, private router: Router) {  }
 
   login() {
-    this.af.auth.login({
-      provider: AuthProviders.Google,
-      method: AuthMethods.Popup
-    });
-    this.af.auth.subscribe(user => {
-      if (user) {
-          this.user = user.auth.providerData[0];
-          this.photoURL = user.auth.photoURL;
-          var email: String = user.auth.email;
-          // Vérification du domaine
-          var domainEsi: string = '@esi.dz';
-          if(! email.includes(domainEsi, email.length-domainEsi.length)){
-            this.logout();
-            this._router.navigate(['']);
-            alert('Login 1-Seul le domaine @esi.dz est accepté !'); 
-          }
-          else{
-            //acces à la base de données
-            /*this._fireService.getComptes(email)
+    this.authService.loginWithGoogle().then((data) => {
+        var domainEsi: string = '@esi.dz';
+        if(! data.auth.email.includes(domainEsi, data.auth.email.length-domainEsi.length)){
+            this.authService.logout();
+            alert('Seul le domaine @esi.dz est accepté !'); 
+        }
+        else{
+            //acces à la base de données pour recupérer les données ...
+            /*this._fireService.getComptes(data.auth.email)
                   .subscribe(
-                      data => {
-                        this.compte = data;
-                        this._router.navigate(['/home']); },
+                      donnees => {
+                        this.compte = donnees;},
                   );*/
-              this._router.navigate(['/home']); 
-          }
-      }
-      else {
-        this.user = {};
-        this.photoURL = '';
-      }
-    });
-    return this.user;
+            this.router.navigate(['']); 
+        }
+    })
   }
-
-  logout() {
-    this.af.auth.logout();
-  }
-  
-  seConnecterAutre() {
-    this.logout();
-    //Wait 1 seconds, and login :
-    setTimeout(() => this.login(), 1000);
-  }
-
-  isUserLoggedIn() {
-    return (Object.keys(this.user).length === 0);
-  }  
-  
 
 }
