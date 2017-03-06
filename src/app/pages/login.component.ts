@@ -1,13 +1,16 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { moveIn } from '../router.animations';
 
 @Component({
-  templateUrl: 'login.component.html'
+  templateUrl: 'login.component.html',
+  animations: [moveIn()],
+  host: {'[@moveIn]': ''}
 })
 export class LoginComponent {
 emailError: boolean = false;
-
+state: string = '';
 constructor(public authService: AuthService, private router: Router) {  }
 
   login() {

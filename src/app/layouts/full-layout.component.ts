@@ -1,16 +1,20 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
+import { moveInLeft } from '../router.animations';
 
 @Component({
   selector: 'app-dashboard',
-  templateUrl: './full-layout.component.html'
+  templateUrl: './full-layout.component.html',
+  animations: [moveInLeft()],
+  host: {'[@moveInLeft]': ''}
 })
 export class FullLayoutComponent implements OnInit {
   private isLoggedIn: Boolean;
   private user_displayName: String;
   private user_email: String;
   private user_photoURL: String;
+  state: string = '';
 
 constructor(private authService: AuthService, private router: Router, private route: ActivatedRoute) { 
   this.authService.af.auth.subscribe(
