@@ -1,6 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
+import {FormsModule, FormControl, FormGroup, ReactiveFormsModule, FormControlDirective, FormGroupDirective} from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
@@ -25,6 +26,7 @@ import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 // Firebase
 import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
+import { FormsComponent } from './components/forms.component';
 
 // Must export the config
 export const firebaseConfig = {
@@ -44,7 +46,7 @@ export const firebaseConfig = {
     DropdownModule.forRoot(),
     TabsModule.forRoot(),
     ChartsModule,
-    BrowserModule,
+    FormsModule,
     AngularFireModule.initializeApp(firebaseConfig)
     
   ],
@@ -58,10 +60,13 @@ export const firebaseConfig = {
     AsideToggleDirective,
   ],
   providers: [{
-    provide: LocationStrategy,
-    useClass: HashLocationStrategy
-  }
-  ,AuthService],
+      provide: LocationStrategy,
+      useClass: HashLocationStrategy
+    },
+    AuthService,
+    FormControlDirective,
+    FormGroupDirective,
+  ],
   bootstrap: [ AppComponent ]
 })
 export class AppModule { }
