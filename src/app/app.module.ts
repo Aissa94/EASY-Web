@@ -2,6 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import {FormsModule, FormControl, FormGroup, ReactiveFormsModule, FormControlDirective, FormGroupDirective} from '@angular/forms';
+import { HttpModule } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
@@ -47,8 +48,8 @@ export const firebaseConfig = {
     TabsModule.forRoot(),
     ChartsModule,
     FormsModule,
-    AngularFireModule.initializeApp(firebaseConfig)
-    
+    AngularFireModule.initializeApp(firebaseConfig),
+    HttpModule,
   ],
   declarations: [
     AppComponent,

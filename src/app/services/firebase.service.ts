@@ -7,8 +7,9 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class FireService  {
+    private _url : string = "http://localhost:5000/";
 
-    constructor(private af:AngularFire){}
+    constructor(private _http:Http, private af:AngularFire){}
 
     getEmployees(){
         return this.af.database.list('/members');
@@ -16,6 +17,11 @@ export class FireService  {
 
     getComptes(email: String){
         return this.af.database.list('/comptes/'+email);
+    }
+
+    getUsers(){
+        return this._http.get(this._url)
+            .map((response:Response) => response.json());
     }
 
 }

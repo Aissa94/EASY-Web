@@ -12,9 +12,9 @@ export class TestComponent  {
     constructor(private _fireService: FireService){}
 
     onClic(){//testService
-        this._fireService.getEmployees()
+        this._fireService.getUsers()
             .subscribe(
-                data => {this.employees = data;console.log(this.employees[0]["name"])},
+                data => {this.employees = data;console.log(this.employees)},
                 error => alert(error),
             );
     }
