@@ -7,7 +7,7 @@ import 'rxjs/Rx';
 
 @Injectable()
 export class FirebaseService  {
-    private _url : string = "http://localhost:4300/api/users";
+    private _url : string = "http://localhost:3000/api/users";
 
     constructor(private _http:Http, private af:AngularFire){}
 
