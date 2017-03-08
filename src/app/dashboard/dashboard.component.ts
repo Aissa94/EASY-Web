@@ -6,7 +6,7 @@ import { Router } from '@angular/router';
 })
 export class DashboardComponent implements OnInit {
 
-  constructor( ) { }
+  constructor(private router: Router) {  }
 
   public brandPrimary:string =  '#20a8d8';
   public brandSuccess:string =  '#4dbd74';
@@ -459,6 +459,10 @@ export class DashboardComponent implements OnInit {
   public sparklineChartLegend:boolean = false;
   public sparklineChartType:string = 'line';
 
+  semestre() {
+    
+            this.router.navigate(['components/semestre']); 
+        }
 
   ngOnInit(): void {
     //generate random values for mainChart

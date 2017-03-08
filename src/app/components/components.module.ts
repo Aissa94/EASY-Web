@@ -21,6 +21,9 @@ import { ComponentsRoutingModule }  from './components-routing.module';
 // Our Components
 import { TestComponent }            from './test.component';
 
+//Gestion des années
+import { SemestreComponent }        from './semestre.component';
+import { LevelComponent }           from './level.component';
 
 @NgModule({
     imports: [
@@ -37,7 +40,9 @@ import { TestComponent }            from './test.component';
         SwitchesComponent,
         TablesComponent,
         TabsComponent,
-        TestComponent
+        TestComponent,
+        SemestreComponent,
+        LevelComponent
     ]
 })
 export class ComponentsModule { }

@@ -11,15 +11,17 @@
                         <div class="card-block" [@moveIn]="state">
                             <h1>Authentification</h1>
                             <p class="text-muted">Se connecter avec un compte google</p>
-                            <div class="row">
-                                <div class="col-12">
-                                    <button type="button" class="btn btn-primary px-2" (click)="login()">Connexion</button>
-                                </div>
-                            </div><br />
-                            <div class="row">
-                                <div class="col-6">
+                            <br />
+                            <div class="row justify-content-center">
+                                <div class="col-9">
                                     <img src="../../assets/img/google.png" alt="Image Google" width="250"/>
                                 </div>
+                            </div><br />
+                            <div class="row justify-content-center text-center">
+                                <button style="margin-bottom: 4px" class="btn btn-lg btn-google-plus text"  (click)="login()" type="button">
+                                    <span>Se connecter</span>
+                                </button>
+                                
                             </div>
                         </div>
                     </div>
@@ -27,7 +29,8 @@
                         <div class="card-block text-center">
                             <div>
                                 <h2>EASI</h2>
-                                <img src="../img/logo_easi.png" alt="logo_easi" width="200">
+                                <br />
+                                <img src="../img/logo_easi.png" alt="logo_easi" width="300">
                                 <br /><br /><p>Gestion de Scolarité de l'ESI</p>
                             </div>
                         </div>

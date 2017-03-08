@@ -10,6 +10,8 @@ import { SwitchesComponent } from './switches.component';
 import { TablesComponent } from './tables.component';
 import { TabsComponent } from './tabs.component';
 import { TestComponent } from './test.component';
+import { SemestreComponent } from './semestre.component';
+import { LevelComponent } from './level.component';
 
 const routes: Routes = [
   {
@@ -72,6 +74,20 @@ const routes: Routes = [
         component: TabsComponent,
         data: {
           title: 'Tabs'
+        }
+      },
+      {
+        path: 'semestre',
+        component: SemestreComponent,
+        data: {
+          title: 'Semestre'
+        }
+      },
+      {
+        path: 'level',
+        component: LevelComponent,
+        data: {
+          title: 'Niveau'
         }
       },
       {
