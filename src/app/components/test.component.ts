@@ -3,8 +3,7 @@ import { FirebaseService } from '../services/firebase.service';
 
 @Component({
     selector: 'my-test',
-    templateUrl: './test.component.html',
-    providers: [FirebaseService]
+    templateUrl: './test.component.html'
 })
 export class TestComponent  { 
     employees :any = [];
