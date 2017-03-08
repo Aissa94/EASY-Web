@@ -8,7 +8,10 @@ import 'rxjs/add/operator/take';
 
 @Injectable()
 export class AuthService implements CanActivate {
-
+  // Utilisation des services : 
+      // AngularFire pour la base de données
+      // AngularFireAuth pour l'authentification
+      // Router pour le retage  
   constructor(public af: AngularFire, private auth: AngularFireAuth, private router: Router) { }
 
   canActivate(): Observable<boolean> {
@@ -17,7 +20,7 @@ export class AuthService implements CanActivate {
         .take(1)
         .map(state => !!state)
         .do(authenticated => {
-      if 
+      if // rediriction à la page d'accueil
         (!authenticated) this.router.navigate([ '/pages/login' ]);
       })
     }
@@ -26,7 +29,7 @@ export class AuthService implements CanActivate {
   loginWithGoogle() {
     return this.af.auth.login({
       provider: AuthProviders.Google,
-      method: AuthMethods.Popup
+      method: AuthMethods.Popup  // Sous format Popup
     });
   }
 

@@ -6,7 +6,7 @@ import { moveIn } from '../router.animations';
 @Component({
   templateUrl: 'login.component.html',
   animations: [moveIn()],
-  host: {'[@moveIn]': ''}
+  host: {'[@moveIn]': ''}  // annimation de début
 })
 export class LoginComponent {
 emailError: boolean = false;
@@ -14,9 +14,12 @@ state: string = '';
 constructor(public authService: AuthService, private router: Router) {  }
 
   login() {
+    // Si on authentification alors
     this.authService.loginWithGoogle().then((data) => {
+        // Filtrage des domaines sauf @esi.dz
         var domainEsi: string = '@esi.dz';
         if(! data.auth.email.includes(domainEsi, data.auth.email.length-domainEsi.length)){
+            // On déconnecte
             this.authService.logout();
             setTimeout((e)=> e.emailError = false, 4000, this);
             this.emailError = true;
