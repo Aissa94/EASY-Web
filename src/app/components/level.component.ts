@@ -7,6 +7,9 @@ import { Router } from '@angular/router';
 
 export class LevelComponent {
 
-  constructor() { }
-
+  constructor(private router: Router) { }
+  group() {
+    
+            this.router.navigate(['components/group']); 
+        }
 }

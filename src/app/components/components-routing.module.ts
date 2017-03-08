@@ -12,6 +12,7 @@ import { TabsComponent } from './tabs.component';
 import { TestComponent } from './test.component';
 import { SemestreComponent } from './semestre.component';
 import { LevelComponent } from './level.component';
+import { GroupsComponent } from './group.component';
 
 const routes: Routes = [
   {
@@ -81,6 +82,13 @@ const routes: Routes = [
         component: SemestreComponent,
         data: {
           title: 'Semestre'
+        }
+      },
+      {
+        path: 'group',
+        component: SemestreComponent,
+        data: {
+          title: 'Groupe'
         }
       },
       {

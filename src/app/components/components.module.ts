@@ -24,6 +24,7 @@ import { TestComponent }            from './test.component';
 //Gestion des années
 import { SemestreComponent }        from './semestre.component';
 import { LevelComponent }           from './level.component';
+import { GroupsComponent }           from './group.component';
 
 @NgModule({
     imports: [
@@ -42,7 +43,8 @@ import { LevelComponent }           from './level.component';
         TabsComponent,
         TestComponent,
         SemestreComponent,
-        LevelComponent
+        LevelComponent,
+        GroupsComponent,
     ]
 })
 export class ComponentsModule { }
