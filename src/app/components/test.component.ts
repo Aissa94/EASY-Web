@@ -1,20 +1,20 @@
 import { Component } from '@angular/core';
-import { FireService } from '../services/firebase.service';
+import { FirebaseService } from '../services/firebase.service';
 
 @Component({
     selector: 'my-test',
     templateUrl: './test.component.html',
-    providers: [FireService]
+    providers: [FirebaseService]
 })
 export class TestComponent  { 
     employees :any = [];
 
-    constructor(private _fireService: FireService){}
+    constructor(private _firebaseService: FirebaseService){}
 
     onClic(){//testService
-        this._fireService.getUsers()
+        this._firebaseService.getUsers()
             .subscribe(
-                data => {this.employees = data;console.log(this.employees)},
+                data => {console.log(data)},
                 error => alert(error),
             );
     }

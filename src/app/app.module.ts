@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import {FormsModule, FormControl, FormGroup, ReactiveFormsModule, FormControlDirective, FormGroupDirective} from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
@@ -28,6 +28,7 @@ import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { FormsComponent } from './components/forms.component';
+import { FirebaseService } from './services/firebase.service';
 
 // Must export the config
 export const firebaseConfig = {
@@ -65,6 +66,7 @@ export const firebaseConfig = {
       useClass: HashLocationStrategy
     },
     AuthService,
+    FirebaseService,
     FormControlDirective,
     FormGroupDirective,
   ],
