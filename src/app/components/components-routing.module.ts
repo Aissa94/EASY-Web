@@ -86,7 +86,7 @@ const routes: Routes = [
       },
       {
         path: 'group',
-        component: SemestreComponent,
+        component: GroupsComponent,
         data: {
           title: 'Groupe'
         }
