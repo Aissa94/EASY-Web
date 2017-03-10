@@ -2,7 +2,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { LocationStrategy, HashLocationStrategy } from '@angular/common';
 import {FormsModule, FormControl, FormGroup, ReactiveFormsModule, FormControlDirective, FormGroupDirective} from '@angular/forms';
-import { HttpModule } from '@angular/http';
+import { HttpModule, Http } from '@angular/http';
 
 import { AppComponent } from './app.component';
 import { DropdownModule } from 'ng2-bootstrap/dropdown';
@@ -28,14 +28,15 @@ import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { FormsComponent } from './components/forms.component';
+import { FirebaseService } from './services/firebase.service';
 
 // Must export the config
 export const firebaseConfig = {
-    apiKey: "AIzaSyDyBR9jBfFUwFEonlvnriNCJfm1VzZoR8M",
-    authDomain: "test-c3928.firebaseapp.com",
-    databaseURL: "https://test-c3928.firebaseio.com",
-    storageBucket: "test-c3928.appspot.com",
-    messagingSenderId: "709967017535"
+    apiKey: "AIzaSyCso0WqlHADHKR8ZW8AYvP9RW-3NMWmOG0",
+    authDomain: "test-easi.firebaseapp.com",
+    databaseURL: "https://test-easi.firebaseio.com",
+    storageBucket: "test-easi.appspot.com",
+    messagingSenderId: "425426765546"
 };
 
 
@@ -65,6 +66,7 @@ export const firebaseConfig = {
       useClass: HashLocationStrategy
     },
     AuthService,
+    FirebaseService,
     FormControlDirective,
     FormGroupDirective,
   ],
