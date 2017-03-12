@@ -25,10 +25,13 @@ import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent } from './layouts/simple-layout.component';
 
 // Firebase
-import * as firebase from 'firebase';
 import { AngularFireModule } from 'angularfire2';
 import { FormsComponent } from './components/forms.component';
 import { FirebaseService } from './services/firebase.service';
+//import { AuthGuard } from './services/auth-guard.service';
+
+// Scheduler
+import { jqxSchedulerComponent } from './used/angular_jqxscheduler';
 
 // Must export the config
 export const firebaseConfig = {
@@ -60,6 +63,7 @@ export const firebaseConfig = {
     BreadcrumbsComponent,
     SIDEBAR_TOGGLE_DIRECTIVES,
     AsideToggleDirective,
+    jqxSchedulerComponent
   ],
   providers: [{
       provide: LocationStrategy,
@@ -69,6 +73,7 @@ export const firebaseConfig = {
     FirebaseService,
     FormControlDirective,
     FormGroupDirective,
+    //AuthGuard
   ],
   bootstrap: [ AppComponent ]
 })

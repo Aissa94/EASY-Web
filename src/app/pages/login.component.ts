@@ -1,7 +1,8 @@
 import { Component } from '@angular/core';
 import { Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { moveIn } from '../router.animations';
+import { moveIn } from '../used/router.animations';
+//import { Credentials } from 'crypto';
 
 @Component({
   templateUrl: 'login.component.html',
@@ -36,5 +37,13 @@ constructor(public authService: AuthService, private router: Router) {  }
         }
     })
   }
+
+  /*login() {
+    var credentials: Credentials;
+    credentials = this.authService.af.auth.subscribe(
+        data => {console.log(credentials);this.authService.login(credentials);},
+        error => console.log(error)
+    );
+  }*/
 
 }

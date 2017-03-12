@@ -20,6 +20,7 @@ import { ComponentsRoutingModule }  from './components-routing.module';
 
 // Our Components
 import { TestComponent }            from './test.component';
+import { SchedulerComponent } from './scheduler.component';
 
 
 @NgModule({
@@ -37,7 +38,8 @@ import { TestComponent }            from './test.component';
         SwitchesComponent,
         TablesComponent,
         TabsComponent,
-        TestComponent
+        TestComponent,
+        SchedulerComponent
     ]
 })
 export class ComponentsModule { }

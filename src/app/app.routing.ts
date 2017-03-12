@@ -5,6 +5,7 @@ import { Routes, RouterModule } from '@angular/router';
 import { FullLayoutComponent } from './layouts/full-layout.component';
 import { SimpleLayoutComponent }  from './layouts/simple-layout.component';
 import { AuthService } from './services/auth.service';
+//import { AuthGuard } from './services/auth-guard.service';
 
 export const routes: Routes = [
   {
@@ -22,7 +23,7 @@ export const routes: Routes = [
       {
         path: 'home',
         loadChildren: './dashboard/dashboard.module#DashboardModule',
-        canActivate: [AuthService]
+        canActivate: [AuthService]//[AuthGuard]
       },
       {
         path: 'components',

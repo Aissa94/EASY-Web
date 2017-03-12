@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { AuthService } from '../services/auth.service';
-import { moveInLeft } from '../router.animations';
+import { moveInLeft } from '../used/router.animations';
 
 @Component({
   selector: 'app-dashboard',

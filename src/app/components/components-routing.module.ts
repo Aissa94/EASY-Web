@@ -10,6 +10,7 @@ import { SwitchesComponent } from './switches.component';
 import { TablesComponent } from './tables.component';
 import { TabsComponent } from './tabs.component';
 import { TestComponent } from './test.component';
+import { SchedulerComponent } from './scheduler.component';
 
 const routes: Routes = [
   {
@@ -79,6 +80,13 @@ const routes: Routes = [
         component: TestComponent,
         data: {
           title: 'Test'
+        }
+      },
+      {
+        path: 'scheduler',
+        component: SchedulerComponent,
+        data: {
+          title: 'Scheduler'
         }
       },
     ]
