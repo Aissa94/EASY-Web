@@ -23,6 +23,10 @@ import { TestComponent }            from './test.component';
 import { SchedulerComponent } from './scheduler.component';
 import { jqxSchedulerComponent } from "../used/angular_jqxscheduler";
 
+//Gestion des années
+import { SemestreComponent }        from './semestre.component';
+import { LevelComponent }           from './level.component';
+import { GroupsComponent }           from './group.component';
 
 @NgModule({
     imports: [
@@ -40,8 +44,14 @@ import { jqxSchedulerComponent } from "../used/angular_jqxscheduler";
         TablesComponent,
         TabsComponent,
         TestComponent,
+<<<<<<< HEAD
         SchedulerComponent,
         jqxSchedulerComponent
+=======
+        SemestreComponent,
+        LevelComponent,
+        GroupsComponent,
+>>>>>>> 0a8c55088935dfc5295e60f03fc5669898a90d34
     ]
 })
 export class ComponentsModule { }
