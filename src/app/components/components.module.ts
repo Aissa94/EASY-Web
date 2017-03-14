@@ -44,14 +44,11 @@ import { GroupsComponent }           from './group.component';
         TablesComponent,
         TabsComponent,
         TestComponent,
-<<<<<<< HEAD
         SchedulerComponent,
-        jqxSchedulerComponent
-=======
+        jqxSchedulerComponent,
         SemestreComponent,
         LevelComponent,
         GroupsComponent,
->>>>>>> 0a8c55088935dfc5295e60f03fc5669898a90d34
     ]
 })
 export class ComponentsModule { }
