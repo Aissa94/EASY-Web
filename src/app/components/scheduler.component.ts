@@ -4,15 +4,12 @@ import { jqxSchedulerComponent } from '../used/angular_jqxscheduler';
 
 
 @Component({
-    selector: 'sched',
-    //templateUrl: 'scheduler.component.html',
     template: `<jqxScheduler #schedulerReference></jqxScheduler>`
 })
 
-export class SchedulerComponent implements AfterViewInit
+export class SchedulerComponent// implements AfterViewInit
 {
     @ViewChild('schedulerReference') scheduler: jqxSchedulerComponent;
-
     ngAfterViewInit(): void 
     {
         this.scheduler.createComponent(this.schedulerSettings);

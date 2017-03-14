@@ -21,6 +21,7 @@ import { ComponentsRoutingModule }  from './components-routing.module';
 // Our Components
 import { TestComponent }            from './test.component';
 import { SchedulerComponent } from './scheduler.component';
+import { jqxSchedulerComponent } from "../used/angular_jqxscheduler";
 
 
 @NgModule({
@@ -39,7 +40,8 @@ import { SchedulerComponent } from './scheduler.component';
         TablesComponent,
         TabsComponent,
         TestComponent,
-        SchedulerComponent
+        SchedulerComponent,
+        jqxSchedulerComponent
     ]
 })
 export class ComponentsModule { }
