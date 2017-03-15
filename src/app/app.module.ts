@@ -32,11 +32,11 @@ import { FirebaseService } from './services/firebase.service';
 
 // Must export the config
 export const firebaseConfig = {
-    apiKey: "AIzaSyCso0WqlHADHKR8ZW8AYvP9RW-3NMWmOG0",
-    authDomain: "test-easi.firebaseapp.com",
-    databaseURL: "https://test-easi.firebaseio.com",
-    storageBucket: "test-easi.appspot.com",
-    messagingSenderId: "425426765546"
+    apiKey: "AIzaSyCdI4XM_StQkBhFI33zmIfFu2G4bMxJ6CE",
+    authDomain: "easy-159021.firebaseapp.com",
+    databaseURL: "https://easy-159021.firebaseio.com",
+    storageBucket: "easy-159021.appspot.com",
+    messagingSenderId: "556740512220"
 };
 
 
