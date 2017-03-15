@@ -4,11 +4,11 @@ import { jqxSchedulerComponent } from '../used/angular_jqxscheduler';
 
 
 @Component({
-    template: `<jqxScheduler #schedulerReference></jqxScheduler>`
+    templateUrl: 'scheduler.component.html'
 })
 
-export class SchedulerComponent implements AfterViewInit
-{
+export class SchedulerComponent implements AfterViewInit {
+
     @ViewChild('schedulerReference') scheduler: jqxSchedulerComponent;
     ngAfterViewInit(): void 
     {
@@ -105,12 +105,13 @@ export class SchedulerComponent implements AfterViewInit
 
     schedulerSettings: jqwidgets.SchedulerOptions =
     {
-        date: new $.jqx.date(2016, 11, 23),
-        width: 800,
+        date: new $.jqx.date(2017, 3, 15),
+        width: 1050,
         height: 600,
         source: this.dataAdapter,
         view: 'weekView',
         showLegend: true,
+        theme: "black",
         appointmentDataFields:
         {
             from: "start",
@@ -134,4 +135,10 @@ export class SchedulerComponent implements AfterViewInit
             'monthView'
         ]
     };
+
+    // Pour exporter le planning sous un format quelcq
+    exportSheduler(format: string){
+        this.scheduler.exportData(format);
+    }
+
 }

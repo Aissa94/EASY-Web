@@ -1,1 +1,14 @@
-﻿Sheduler
+﻿<div class="animated fadeIn">
+    <jqxScheduler #schedulerReference></jqxScheduler>
+    <div id="scheduler"></div>
+    <div style='margin-top: 20px;'>
+            <input type="button" value="Export to Excel" (click)="exportSheduler('xls')" />
+            <input type="button" value="Export to XML" (click)="exportSheduler('xml')" />
+            <input type="button" value="Export to CSV" (click)="exportSheduler('csv')" />
+            <input type="button" value="Export to TSV" (click)="exportSheduler('tsv')" />
+            <input type="button" value="Export to HTML" (click)="exportSheduler('html')" />
+            <input type="button" value="Export to JSON" (click)="exportSheduler('json')" />
+            <input type="button" value="Export to PDF" (click)="exportSheduler('pdf')" />
+            <input type="button" value="Export to ICAL" (click)="exportSheduler('ics')" />
+    </div>
+</div>
